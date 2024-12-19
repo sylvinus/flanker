@@ -319,7 +319,7 @@ def validate_address(addr_spec, metrics=False, skip_remote_checks=False):
 
     # lookup custom local-part grammar if it exists
     bstart = time()
-    plugin = plugin_for_esp(exchanger)
+    plugin = plugin_for_esp(exchanger.decode("utf-8"))
     mtimes['custom_grammar'] = time() - bstart
     if plugin and plugin.validate(paddr) is False:
         _log.debug('failed custom grammer check for %s/%s', addr_spec, plugin.__name__)
